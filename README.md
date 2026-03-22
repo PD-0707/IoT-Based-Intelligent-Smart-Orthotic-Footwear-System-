@@ -212,5 +212,3 @@ Priyadarshini
 priyadarshini0727@gmail.com
 
 ---
-
-⭐ *If you like this project, consider giving it a star on GitHub!*
