@@ -1,143 +1,216 @@
-# IoT-Based-Intelligent-Smart-Orthotic-Footwear-System-
-Embedded and IoT Project
-IoT-Based Intelligent Smart Orthotic Footwear System
-With Embedded Risk Prediction, Sensor Fusion, Real-Time Biofeedback, and Piezoelectric Energy Harvesting
-________________________________________
-1. ABSTRACT
-This project presents the design and development of an IoT-based intelligent smart orthotic footwear system capable of monitoring plantar pressure distribution, analyzing gait biomechanics, predicting lower limb disorder risks, and providing real-time corrective biofeedback. Unlike conventional orthotic footwear that offers passive mechanical support, the proposed system integrates embedded intelligence, multi-sensor fusion (pressure + IMU), adaptive risk modeling, directional haptic correction, and piezoelectric energy harvesting.
-The system uses Force Sensitive Resistors (FSRs) and an IMU interfaced with an ESP32 microcontroller. Embedded algorithms perform gait phase detection, biomechanical feature extraction, adaptive baseline learning, and time-integrated risk computation locally. Directional vibration feedback provides real-time posture correction. A piezoelectric energy harvesting module converts walking-induced mechanical stress into electrical energy to support battery charging.
-This system transforms orthotic footwear into a preventive, closed-loop intelligent healthcare platform.
-________________________________________
-2. INTRODUCTION
-Lower limb misalignment and abnormal gait patterns contribute significantly to musculoskeletal disorders such as:
-•	Diabetic foot ulcers
-•	Knee osteoarthritis
-•	Chronic back pain
-•	Ankle instability
-•	Postural dysfunction
-Traditional orthotic footwear lacks:
-•	Real-time monitoring
-•	Adaptive intelligence
-•	Corrective feedback
-•	Predictive risk analysis
-With advances in embedded systems, IoT, and wearable sensing, footwear can now become an intelligent biomechanical monitoring system. This project aims to design a wearable, affordable, embedded-dominant smart orthotic platform for preventive healthcare.
-________________________________________
-<img width="713" height="800" alt="image" src="https://github.com/user-attachments/assets/090c23cd-e394-4f1c-8460-5e090c9b5a06" />
+# 👟 IoT-Based Intelligent Smart Orthotic Footwear System
 
-________________________________________
-4. PROBLEM STATEMENT
-Existing systems mainly provide monitoring without predictive analytics or corrective intervention. They lack embedded intelligence, energy sustainability, and adaptive personalization. There is a need for a wearable system that integrates real-time risk computation, corrective feedback, and sustainable energy support.
-________________________________________
-5. OBJECTIVES
-Primary Objective
-To develop an embedded-intelligent IoT smart orthotic footwear system for real-time gait monitoring and risk prediction.
-Secondary Objectives
-•	Measure spatial and temporal pressure distribution
-•	Implement sensor fusion (FSR + IMU)
-•	Compute time-integrated risk index
-•	Provide directional haptic feedback
-•	Integrate piezoelectric energy harvesting
-•	Enable lightweight ML-based classification
-________________________________________
-6. SYSTEM ARCHITECTURE
-1.	Sensing Layer – FSR + IMU
-2.	Embedded Layer – ESP32 processing
-3.	Energy Harvesting Layer – Piezoelectric module
-4.	Communication Layer – WiFi/Bluetooth
-5.	Cloud Layer – Data storage + lightweight ML
-6.	User Interface Layer – Dashboard
-________________________________________
-7. EMBEDDED WORKFLOW
-Step 1: Data Acquisition
-FSR sensors capture plantar pressure.
-IMU captures acceleration and tilt.
-Step 2: Signal Conditioning
-•	Noise filtering
-•	ADC mapping
-•	Calibration
-Step 3: Gait Phase Detection (On ESP32)
-•	Heel strike
-•	Mid stance
-•	Toe off
-Step 4: Feature Extraction (On Device)
-•	Peak pressure
-•	Contact duration
-•	Loading rate
-•	Step symmetry index
-•	Pressure distribution ratio
-Step 5: Risk Computation
+> Embedded + IoT Project for Smart Gait Analysis, Risk Prediction & Real-Time Biofeedback
+
+---
+
+## 📌 Overview
+
+An intelligent wearable footwear system designed to monitor plantar pressure, analyze gait biomechanics, predict injury risks, and provide real-time corrective feedback.
+
+This project transforms traditional orthotics into a **smart, closed-loop healthcare system** using embedded intelligence, sensor fusion, and energy harvesting.
+
+---
+
+## 🚀 Key Features
+
+* 📊 Real-time plantar pressure monitoring
+* 🧠 Embedded gait phase detection
+* 🔗 Sensor fusion (FSR + IMU)
+* ⚠️ Time-integrated risk prediction
+* 🔔 Directional haptic feedback
+* 🔋 Piezoelectric energy harvesting
+* ☁️ Cloud-based lightweight ML
+* ⚡ Energy-aware power management
+
+---
+
+## 🏗️ System Architecture
+
+```
+[FSR + IMU Sensors]
+          ↓
+     [ESP32 MCU]
+          ↓
+[Feature Extraction + Risk Engine]
+          ↓
+   [Feedback System]
+          ↓
+   [WiFi / Bluetooth]
+          ↓
+      [Cloud + ML]
+          ↓
+      [Dashboard UI]
+```
+
+---
+
+## 🔧 Hardware Components
+
+* ESP32 Microcontroller
+* Force Sensitive Resistors (FSR)
+* IMU Sensor (Accelerometer + Gyroscope)
+* Vibration Motors (Haptic Feedback)
+* Piezoelectric Sensors
+* Battery + Power Management Circuit
+
+---
+
+## ⚙️ Software & Technologies
+
+* Embedded C / Arduino Framework
+* ESP32 Firmware
+* Signal Processing Algorithms
+* Machine Learning (Logistic Regression, Decision Tree)
+* IoT Cloud Platform (Firebase / ThingsBoard / AWS IoT)
+
+---
+
+## 🔄 Working Principle
+
+### 1. Data Acquisition
+
+* FSR sensors capture foot pressure distribution
+* IMU captures motion and orientation
+
+### 2. Signal Processing
+
+* Noise filtering
+* Calibration
+* ADC conversion
+
+### 3. Gait Phase Detection
+
+* Heel Strike
+* Mid Stance
+* Toe Off
+
+### 4. Feature Extraction
+
+* Peak Pressure
+* Contact Duration
+* Loading Rate
+* Step Symmetry Index
+
+### 5. Risk Computation
+
+```
 Risk = Pressure × Duration × Repetition × Asymmetry
-Step 6: Directional Feedback
-Vibration motor activated based on overload region.
-________________________________________
-8. ADAPTIVE BASELINE LEARNING
-During initial usage period:
-Baseline Mean and Standard Deviation are calculated.
-Dynamic Threshold = Mean + (k × Deviation)
-Allows personalization without heavy AI.
-________________________________________
-9. LIGHTWEIGHT MACHINE LEARNING
-Cloud-based:
-•	Logistic regression for injury probability
-•	Decision tree for gait anomaly classification
-ESP32 sends only extracted features.
-________________________________________
-10. PIEZOELECTRIC ENERGY HARVESTING
-Piezoelectric strips embedded under heel and forefoot.
-Energy Cycle:
-Foot Impact → Piezo Deformation → AC Voltage → Rectifier → Capacitor → Battery Support
-Benefits:
-•	Extends battery life
-•	Semi self-powered operation
-•	Sustainable wearable design
-________________________________________
-11. ENERGY-AWARE POWER MANAGEMENT
-ESP32 dynamically adjusts:
-•	Sampling rate
-•	WiFi transmission frequency
-•	Sleep mode activation
-Based on battery level and harvested energy.
-________________________________________
-12. IMPLEMENTATION PHASES
-1.	Sensor integration
-2.	Embedded algorithm development
-3.	Risk modeling implementation
-4.	Feedback system integration
-5.	Energy harvesting circuit design
-6.	IoT dashboard development
-7.	Testing and validation
-________________________________________
-13. EXPECTED RESULTS
-•	Accurate pressure mapping
-•	Reliable gait phase detection
-•	Early imbalance identification
-•	Reduced abnormal load exposure
-•	Improved posture
-•	Extended battery life
-________________________________________
-14. NOVELTY OF THE PROJECT
-•	Time-integrated pressure risk modeling
-•	Real-time embedded gait phase engine
-•	On-device biomechanical feature extraction
-•	Adaptive baseline learning
-•	Directional haptic closed-loop correction
-•	Piezoelectric energy harvesting integration
-•	Energy-aware embedded power control
-________________________________________
-15. APPLICATIONS
-•	Diabetic foot monitoring
-•	Rehabilitation support
-•	Elderly mobility assistance
-•	Athlete performance optimization
-•	Preventive orthopedics
-________________________________________
-16. LIMITATIONS
-•	Limited harvested energy output
-•	Sensor drift
-•	Calibration dependency
-•	Clinical validation required
-________________________________________
-17. CONCLUSION
-The proposed IoT-based Intelligent Smart Orthotic Footwear System integrates embedded intelligence, sensor fusion, predictive risk modeling, directional biofeedback, and sustainable energy harvesting into a single wearable platform. Unlike conventional orthotics, this system actively monitors, analyzes, and corrects gait patterns in real time.
-By shifting from passive support to proactive preventive healthcare, the system offers strong potential for academic research, patent development, clinical validation, and commercial wearable applications.
+```
 
+### 6. Feedback Mechanism
+
+* Vibration alerts triggered based on overload zones
+
+---
+
+## 🧠 Adaptive Learning
+
+* Learns user baseline during initial usage
+* Uses dynamic threshold:
+
+```
+Threshold = Mean + (k × Standard Deviation)
+```
+
+* Enables personalization without heavy AI
+
+---
+
+## ☁️ Machine Learning Model
+
+* Logistic Regression → Injury Risk Prediction
+* Decision Tree → Gait Abnormality Detection
+
+Only extracted features are transmitted → reduces power & bandwidth usage.
+
+---
+
+## 🔋 Energy Harvesting System
+
+* Piezoelectric sensors placed under heel & forefoot
+* Converts walking pressure into electrical energy
+
+**Energy Flow:**
+
+```
+Foot Impact → Mechanical Stress → AC Voltage → Rectifier → Storage
+```
+
+---
+
+## ⚡ Power Optimization
+
+* Adaptive sampling rate
+* Controlled WiFi transmission
+* Deep sleep modes
+
+---
+
+## 📱 Applications
+
+* Diabetic foot monitoring
+* Rehabilitation support
+* Elderly care
+* Sports performance tracking
+* Preventive orthopedics
+
+---
+
+## 🌟 Novelty
+
+* Real-time embedded gait engine
+* Time-based risk modeling
+* Closed-loop corrective system
+* On-device feature extraction
+* Integrated energy harvesting
+
+---
+
+## ⚠️ Limitations
+
+* Limited harvested energy
+* Sensor drift
+* Calibration dependency
+* Requires clinical validation
+
+---
+
+## 🧪 Implementation Steps
+
+1. Sensor integration
+2. Embedded firmware development
+3. Risk model implementation
+4. Feedback system setup
+5. Energy harvesting circuit design
+6. IoT dashboard creation
+7. Testing & validation
+
+---
+
+## 📊 Expected Outcomes
+
+* Improved posture correction
+* Early detection of abnormalities
+* Reduced injury risk
+* Extended battery life
+
+---
+<img width="715" height="811" alt="image" src="https://github.com/user-attachments/assets/3c8619d8-cb19-44fa-bb6d-7423e21f1497" />
+
+## 🔮 Future Scope
+
+* Mobile app integration
+* AI-based adaptive correction
+* Clinical trials
+* Product commercialization
+
+
+## 👨‍💻 Author
+
+Priyadarshini
+priyadarshini0727@gmail.com
+
+---
+
+⭐ *If you like this project, consider giving it a star on GitHub!*
